@@ -1,0 +1,11 @@
+CHIP Decoder5to32copy{
+    IN a1,a2,a3,a4,a5,en;
+    OUT d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,d32;
+
+    PARTS:
+    Decoder2to4(a=a4,b=a5,en=en,y3=temp3,y2=temp2,y1=temp1,y0=temp0);
+    Decoder3to8(a=a1,b=a2,c=a3,en=temp0,y0=d1,y1=d2,y2=d3,y3=d4,y4=d5,y5=d6,y6=d7,y7=d8);
+    Decoder3to8(a=a1,b=a2,c=a3,en=temp1,y0=d9,y1=d10,y2=d11,y3=d12,y4=d13,y5=d14,y6=d15,y7=d16);
+    Decoder3to8(a=a1,b=a2,c=a3,en=temp2,y0=d17,y1=d18,y2=d19,y3=d20,y4=d21,y5=d22,y6=d23,y7=d24);
+    Decoder3to8(a=a1,b=a2,c=a3,en=temp3,y0=d25,y1=d26,y2=d27,y3=d28,y4=d29,y5=d30,y6=d31,y7=d32);
+    }

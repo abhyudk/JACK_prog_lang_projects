@@ -1,0 +1,17 @@
+CHIP Decoder3to8{
+    IN a,b,c,en;
+    OUT y7,y6,y5,y4,y3,y2,y1,y0;
+
+    PARTS:
+    Not(in=a,out=nota);
+    Not(in=b,out=notb);
+    Not(in=c,out=notc);
+    And4inputs(a=a,b=b,c=c,d=en,out=y7);
+    And4inputs(a=a,b=b,c=notc,d=en,out=y6);
+    And4inputs(a=a,b=notb,c=c,d=en,out=y5);
+    And4inputs(a=a,b=notb,c=notc,d=en,out=y4);
+    And4inputs(a=nota,b=b,c=c,d=en,out=y3);
+    And4inputs(a=nota,b=b,c=notc,d=en,out=y2);
+    And4inputs(a=nota,b=notb,c=c,d=en,out=y1);
+    And4inputs(a=nota,b=notb,c=notc,d=en,out=y0);
+    }

@@ -1,0 +1,12 @@
+CHIP Decoder2to4{
+    IN a,b,en;
+    OUT y3,y2,y1,y0;
+
+    PARTS:
+    Not(in=a,out=nota);
+    Not(in=b,out=notb);
+    And3inputs(a=a,b=b,c=en,out=y3);
+    And3inputs(a=a,b=notb,c=en,out=y2);
+    And3inputs(a=nota,b=b,c=en,out=y1);
+    And3inputs(a=nota,b=notb,c=en,out=y0);
+}
